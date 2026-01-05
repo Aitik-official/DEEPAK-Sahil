@@ -1,0 +1,23 @@
+{
+  "name": "deepak-sahil-engcon-website",
+  "version": "1.0.0",
+  "description": "Deepak & Sahil Engcon Pvt. Ltd. Mumbai - Professional Turnkey Civil Construction & Development Projects. ISO 9001:2015 Certified.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "construction",
+    "civil-engineering",
+    "turnkey-construction",
+    "mumbai",
+    "maharashtra",
+    "iso-9001-2015"
+  ],
+  "author": "Deepak & Sahil Engcon Pvt. Ltd. Mumbai",
+  "license": "UNLICENSED",
+  "devDependencies": {},
+  "dependencies": {}
+}
+

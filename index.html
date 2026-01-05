@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Deepak & Sahil Engcon Pvt. Ltd. Mumbai - Professional Turnkey Civil Construction & Development Projects. ISO 9001:2015 Certified. 15+ Years of Excellence in Construction across Maharashtra.">
+    <meta name="keywords" content="construction, civil engineering, construction services, Mumbai, Maharashtra, turnkey construction, residential buildings, commercial buildings">
+    <meta name="author" content="Deepak & Sahil Engcon Pvt. Ltd. Mumbai">
+    <title>Deepak & Sahil Engcon Pvt. Ltd. Mumbai - Home</title>
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Additional styles can be added here -->
+</head>
+<body style="margin: 0; padding: 0; overflow: hidden;">
+    <!-- Main Content - Home Page -->
+    <iframe 
+        src="home.html" 
+        style="width: 100%; height: 100vh; border: none; display: block; margin: 0; padding: 0;"
+        title="Home Page Content"
+        frameborder="0"
+        scrolling="auto"
+        allowfullscreen>
+    </iframe>
+
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+    <script>
+        // Handle navigation from iframe
+        window.addEventListener('message', function(event) {
+            // Listen for navigation messages from iframe
+            if (event.data && event.data.type === 'navigate') {
+                window.location.href = event.data.url;
+            }
+        });
+
+        // Intercept clicks in iframe and navigate parent window
+        window.addEventListener('load', function() {
+            const iframe = document.querySelector('iframe');
+            if (iframe && iframe.contentWindow) {
+                try {
+                    // Try to access iframe content and modify links
+                    const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+                    const links = iframeDoc.querySelectorAll('a[href]');
+                    links.forEach(function(link) {
+                        const href = link.getAttribute('href');
+                        // Check if it's a local HTML file
+                        if (href && (href.endsWith('.html') || href.includes('About.html') || href.includes('blogs.html') || href.includes('contactus.html') || href.includes('ourteam.html') || href.includes('index.html'))) {
+                            link.addEventListener('click', function(e) {
+                                e.preventDefault();
+                                window.location.href = href;
+                            });
+                        }
+                    });
+                } catch (e) {
+                    // Cross-origin restrictions - use postMessage approach
+                    console.log('Using postMessage for navigation');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
